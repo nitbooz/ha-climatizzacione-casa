@@ -1,0 +1,55 @@
+# Esempio di configurazione per la card Climatizzazione Casa
+type: 'custom:climatizzazione-casa'
+name: Climatizzazione Casa
+entities:
+  # Configurazione dei termostati per i 5 ambienti
+  termostati:
+    - nome: Soggiorno
+      climate_entity: climate.soggiorno
+      temperature_entity: sensor.temperatura_soggiorno
+    - nome: Camera da letto
+      climate_entity: climate.camera_da_letto
+      temperature_entity: sensor.temperatura_camera_da_letto
+    - nome: Cucina
+      climate_entity: climate.cucina
+      temperature_entity: sensor.temperatura_cucina
+    - nome: Studio
+      climate_entity: climate.studio
+      temperature_entity: sensor.temperatura_studio
+    - nome: Ingresso
+      climate_entity: climate.ingresso
+      temperature_entity: sensor.temperatura_ingresso
+  
+  # Configurazione dei termoconvettori per i 2 bagni
+  termoconvettori:
+    - nome: Bagno principale
+      switch_entity: switch.termoconvettore_bagno_principale
+      temperature_entity: sensor.temperatura_bagno_principale
+    - nome: Bagno secondario
+      switch_entity: switch.termoconvettore_bagno_secondario
+      temperature_entity: sensor.temperatura_bagno_secondario
+  
+  # Sensori temperatura per calcolo media
+  sensori_temperatura:
+    - sensor.temperatura_soggiorno
+    - sensor.temperatura_camera_da_letto
+    - sensor.temperatura_cucina
+    - sensor.temperatura_studio
+    - sensor.temperatura_ingresso
+    - sensor.temperatura_bagno_principale
+    - sensor.temperatura_bagno_secondario
+  
+  # Sensori mold index
+  sensori_mold_index:
+    - sensor.mold_index_soggiorno
+    - sensor.mold_index_camera_da_letto
+    - sensor.mold_index_cucina
+    - sensor.mold_index_bagno_principale
+    - sensor.mold_index_bagno_secondario
+
+  # Opzioni di visualizzazione (opzionali)
+  options:
+    # Tab iniziale da mostrare (opzionale, default: 'termostati')
+    default_tab: 'termostati' # Possibili valori: 'termostati', 'termoconvettori', 'temperatura', 'mold'
+    # Mostra tutti i contenuti senza tab (opzionale, default: false)
+    show_all: false
